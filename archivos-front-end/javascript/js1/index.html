@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScrip 1</title>
+</head>
+<body>
+    <h1>javascrip 1</h1>
+
+    <form action=" " method="POST" id="form1" onsubmit="mensaje()">
+      NOMBRE:<input type="text" name="nombre" id="nombre"/>
+      <input type="submit" value="ENVIAR">
+    </form>
+   
+    <button id="boton1" onclick="agregar()">mensaje </button>
+    <div id="lista"></div>
+
+
+
+    <script>
+        function mensaje()
+        {
+            var nameValue = document.getElementById("nombre").value;
+            alert("HOLA"+nameValue);
+        }
+
+    function agregar(){
+             var lista = document.getElementById("lista");
+
+             var node= document.createElement("h2");
+
+             node.innerHTML="hola";
+             lista.appendChild(node);
+    }
+    </script>
+</body>
+</html>
