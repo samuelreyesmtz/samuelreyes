@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-12 mb-3">
                 <h1>Calculadora</h1>
                 
             </div>
@@ -20,27 +20,74 @@
         
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-4 md-12">
             <form>
                 <div class="form-row">
-                    <div class="col-md-3">
+                    <div class="col-12 md-3">
                       <input type="text" class="form-control" id="resultado"/>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="col-md-3">
+                    <div class="col md-12">
                         <button class="btn btn-primary" id="btn-7">7</button>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col md-12">
                         <button class="btn btn-primary" id="btn-8">8</button>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col md-12">
                         <button class="btn btn-primary" id="btn-9">9</button>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col md-12">
                         <button class="btn btn-primary" id="btn-mult">X</button>
                     </div>
+                    <div class="col md-12">
+                        <button class="btn btn-primary" id="btn-clear">C</button>
+                    </div>
                 </div>
+                <div class="form-row">
+                    <div class="col md-12">
+                        <button class="btn btn-primary" id="btn-4">4</button>
+                    </div>
+                    <div class="col md-12">
+                        <button class="btn btn-primary" id="btn-5">5</button>
+                    </div>
+                    <div class="col md-12">
+                        <button class="btn btn-primary" id="btn-6">6</button>
+                    </div>
+                    <div class="col md-12">
+                        <button class="btn btn-primary" id="btn-resta">-</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col md-12">
+                        <button class="btn btn-primary" id="btn-1">1</button>
+                    </div>
+                    <div class="col md-12">
+                        <button class="btn btn-primary" id="btn-2">2</button>
+                    </div>
+                    <div class="col md-12">
+                        <button class="btn btn-primary" id="btn-3">3</button>
+                    </div>
+                    <div class="col md-12">
+                        <button class="btn btn-primary" id="btn-suma">+</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col md-12">
+                        <button class="btn btn-primary" id="btn-div">/</button>
+                    </div>
+                    <div class="col md-12">
+                        <button class="btn btn-primary" id="btn-0">0</button>
+                    </div>
+                    <div class="col md-12">
+                        <button class="btn btn-primary" id="btn-punto">.</button>
+                    </div>
+                    <div class="col md-12">
+                        <button class="btn btn-primary" id="btn-igual">=</button>
+                    </div>
+                </div>
+            </div>
+           
             </form>
         </div>
     </div> 
@@ -119,15 +166,29 @@
             $("#btn-suma").click(function(event){
                 event.preventDefault();
                let valor = $("#resultado").val();
-               numero= parseInt(valor);
+               numero= parseFloat(valor);
                operacion = 1;
                $("#resultado").val("");
             });
             $("#btn-resta").click(function(event){
                 event.preventDefault();
                let valor = $("#resultado").val();
-               numero= parseInt(valor);
-               operacion = 2;
+               numero= parseFloat(valor);
+               operacion =2;
+               $("#resultado").val("");
+            });
+            $("#btn-mult").click(function(event){
+                event.preventDefault();
+               let valor = $("#resultado").val();
+               numero= parseFloat(valor);
+               operacion =3;
+               $("#resultado").val("");
+            });
+            $("#btn-div").click(function(event){
+                event.preventDefault();
+               let valor = $("#resultado").val();
+               numero= parseFloat(valor);
+               operacion =4;
                $("#resultado").val("");
             });
             $("#btn-igual").click(function(event){
@@ -137,11 +198,22 @@
                switch(operacion)
                {
                    case 1:
-                   let res = numero + parseInt(valor);
+                   res = numero + parseFloat(valor);
                    $("#resultado").val(res);
                    break;
+
                    case 2:
-                   let rest = numero - parseInt(valor);
+                   res = numero - parseFloat(valor);
+                   $("#resultado").val(res);
+                   break;
+
+                   case 3:
+                   res = numero * parseFloat(valor);
+                   $("#resultado").val(res);
+                   break;
+
+                   case 4:
+                   res = numero / parseFloat(valor);
                    $("#resultado").val(res);
                    break;
                }
