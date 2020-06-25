@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validacion de formularios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Validacion de registros</h1>
+    
+        <form action="" id="form1" onsubmit="validar()">
+            Nombre: <input type="text" name="nombre" id="nombre" placeholder="NOMBRE(S)"/><br><br>
+            Apellido: <input type="text" name="apellido" id="apellido" placeholder="APELLIDO(S)"/><br><br>
+            E-mail: <input type="text" name="email" id="email" size="35" placeholder="CORREO_ELECTRONICO@EMAIL.COM"/><br><br>
+            <input id="validar" type="submit" value="Enviar" onclick="validar()"/>
+        </form>
+        <br>
+            
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>    
+    
+    <script>
+        
+        jQuery(document).ready(function() {
+        $("#validar").click(function() {
+          let valor = $("#nombre").val();
+          let valor_2 = $("#apellido").val();
+          let valor_3 = $("#email").val();
+          if(valor=='' && valor_2 == '' && /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/.test(valor_3) == ''){
+            alert("Campos no registrados");
+          }
+          else if(valor && valor_2=='' && /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/.test(valor_3) == ''){ 
+              alert("Campos no registrados");
+          }
+          else if(valor && valor_2 && /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/.test(valor_3) == ''){ 
+              alert("Campos no registrados");
+          }
+          else if(valor=='' && valor_2=='' && /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/.test(valor_3)){ 
+              alert("Campos no registrados");
+          }
+          else if(valor=='' && valor_2 && /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/.test(valor_3) == ''){ 
+              alert("Campos no registrados");
+          }
+          else if(valor && valor_2=='' && /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/.test(valor_3)){ 
+              alert("Campos no registrados");
+          }
+          else if(valor=='' && valor_2 && /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/.test(valor_3)){ 
+              alert("Campos no registrados");
+          }
+          else{
+              alert("Datos enviados");
+          }
+          
+        });
+
+      });
+        </script>
+    
+</body>
+</html>
